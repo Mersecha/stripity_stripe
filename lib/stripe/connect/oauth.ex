@@ -175,7 +175,7 @@ defmodule Stripe.Connect.OAuth do
   """
   @spec authorize_url(map) :: String.t()
   def authorize_url(options \\ %{}) do
-    base_url = "https://connect.stripe.com/oauth/authorize?"
+    base_url = Config.resolve(:connect_oauth_url, "https://connect.stripe.com/oauth/authorize?")
 
     param_string =
       get_default_authorize_map()
